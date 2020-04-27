@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// Article component that can be edited if authenticated
-const Article = (props) => {
-  return (
-    <>
-      <h2>Some article title</h2>
-      {props.isLoggedIn ? <button>Edit</button> : null}
-    </>
-  );
-}
+import { AuthProvider } from './context/AuthContext';
 
-// Articles component
-const Articles = (props) => {
-  return (
-    <>
-      <Article isLoggedIn={props.isLoggedIn} />
-      <Article isLoggedIn={props.isLoggedIn} />
-    </>
-  );
-}
+import Articles from './components/Articles';
 
 // Main App component
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
   return (
-    <>
-      <Articles isLoggedIn={isLoggedIn} />
-    </>
+    <AuthProvider>
+      <Articles />
+    </AuthProvider>
   );
 }
 
 export default App;
-
-
-
-
-
-
