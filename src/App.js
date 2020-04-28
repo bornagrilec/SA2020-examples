@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { AuthProvider } from './context/AuthContext';
-
-import Articles from './components/Articles';
+import VanillaCookie from './components/VanillaCookie';
+import ModuleCookie from './components/ModuleCookie';
 
 // Main App component
 const App = () => {
+  const [vanillaCookie, setVanillaCookie] = useState(true);
+
   return (
-    <AuthProvider>
-      <Articles />
-    </AuthProvider>
+    <>
+      {/* Uncomment nex line if you want to try our implementation on Vanilla JS */}
+      {/* <VanillaCookie /> */}
+      <ModuleCookie />
+    </>
   );
 }
 
