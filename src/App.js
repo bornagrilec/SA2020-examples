@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-import VanillaCookie from './components/VanillaCookie';
-import ModuleCookie from './components/ModuleCookie';
+import SessionStorage from './components/SessionStorage';
+import LocalStorage from './components/LocalStorage';
 
 // Main App component
 const App = () => {
-  const [vanillaCookie, setVanillaCookie] = useState(true);
+  const [token, setToken] = useState(true);
 
   return (
     <>
-      {/* Uncomment nex line if you want to try our implementation on Vanilla JS */}
-      {/* <VanillaCookie /> */}
-      <ModuleCookie />
+      {/* Uncomment nex line if you want to try our implementation with Session storage */}
+      <SessionStorage />
+      {/* <LocalStorage /> */}
     </>
   );
 }
