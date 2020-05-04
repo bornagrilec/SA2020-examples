@@ -1,15 +1,18 @@
 import React from 'react';
+import './App.css';
 
-import { AuthProvider } from './context/AuthContext';
-
-import Articles from './components/Articles';
+import ClassicForm from './components/ClassicForm';
+import UncontrolledForm from './components/UncontrolledForm';
+import ControlledForm from './components/ControlledForm';
+import ReactHookForm from './components/ReactHookForm';
 
 // Main App component
 const App = () => {
   return (
-    <AuthProvider>
-      <Articles />
-    </AuthProvider>
+    // <ClassicForm />
+    // <UncontrolledForm />
+    // <ControlledForm />
+    <ReactHookForm />
   );
 }
 
