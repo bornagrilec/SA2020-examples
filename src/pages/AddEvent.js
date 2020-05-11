@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import { StoreContext } from '../context/StoreContext';
 import { observer } from 'mobx-react-lite';
+
 import { PageTitle, EventsCount } from '../lib/styles/GeneralStyles';
 import {
     Form,
@@ -14,19 +16,35 @@ import InfoBox from '../components/InfoBox/InfoBox';
 // Images
 import IconEvent from '../assets/img/event-icon.png';
 
-const AddEvent = (props) => {
-    const { eventsStore } = props;
+const AddEvent = () => {
+    const [event, setEvent] = useState({
+        title: '',
+    });
+    const eventsStore = useContext(StoreContext);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setEvent({
+            title: e.target.value,
+        });
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (event.title !== '') {
+            eventsStore.setEvent(event);
+            setEvent({
+                title: '',
+            })
+        }
     }
 
     return (
         <>
             <PageTitle>Add event</PageTitle>
-            <EventsCount>Current number of events: 0</EventsCount>
+            <EventsCount>Current number of events: {eventsStore.eventsCount}</EventsCount>
             <Form onSubmit={handleSubmit}>
-                <Input type="text" />
+                <Input type="text" value={event.title} onChange={handleChange} />
                 <Button type="submit">Submit event</Button>
             </Form>
             <SectionGrid>
