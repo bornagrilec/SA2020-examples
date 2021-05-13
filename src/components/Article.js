@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 // Article component consumer
 const Article = (props) => {
-    const isLoggedIn = useContext(AuthContext);
+    const { isLoggedIn } = useContext(AuthContext);
 
     useEffect(() => {
         console.log(isLoggedIn);
