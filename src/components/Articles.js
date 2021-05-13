@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Article from './Article';
 
-const Articles = (props) => {
+const Articles = () => {
     return (
         <>
             <Article />

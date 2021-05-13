@@ -1,14 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-
+import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 // Article component consumer
-const Article = (props) => {
+const Article = () => {
     const { isLoggedIn } = useContext(AuthContext);
-
-    useEffect(() => {
-        console.log(isLoggedIn);
-    })
 
     return (
         <>
